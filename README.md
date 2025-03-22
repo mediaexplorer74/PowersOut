@@ -9,6 +9,7 @@
 ## Screenshots
 ![W11](Images/sshot01.png)
 ![W11](Images/sshot02.png)
+![W11](Images/sshot03.png)
 
 
 ## Tech details
@@ -19,7 +20,11 @@
 - Janre:	Puzzle
 - Labels:	2D, Atmospheric, Pixel Art, Singleplayer
 - UWP app : Min Win. SDK is 16299, Main Win. SDK is 19041  
-- My progress : game start fixed :) Draft / Early bird (game play not tested)
+- My progress : game start fixed :) Draft / Early bird
+
+## Known Problems
+LightingShader damaged (not compatible with UWP Monogame?), so no light on/light off effect 
+(but rooms are not in darkness mode, hehe!) 
 
 ## TODO
 - Fix 100500 bugs

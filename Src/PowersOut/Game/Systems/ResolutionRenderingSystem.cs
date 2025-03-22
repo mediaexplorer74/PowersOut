@@ -51,29 +51,55 @@ namespace GameManager.Systems
       DateTime now = DateTime.Now;
       this._graphicsDevice.SetRenderTarget(this._renderTargetService.ScreenTarget);
       this._graphicsDevice.Clear(Color.Transparent);
-      this._spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: new Matrix?(this._camera.GetTransformMatrix));
-      foreach (IEntity entity in (IEnumerable<IEntity>) this._query.WhereLayer("Player", "Background_" + this._gameService.CurrentLevel, "Walls_" + this._gameService.CurrentLevel, "Triggers_" + this._gameService.CurrentLevel))
+
+      this._spriteBatch.Begin(samplerState: SamplerState.PointClamp, 
+          transformMatrix: new Matrix?(this._camera.GetTransformMatrix));
+
+      foreach (IEntity entity in 
+                (IEnumerable<IEntity>) this._query.WhereLayer("Player", 
+                "Background_" + this._gameService.CurrentLevel, 
+                "Walls_" + this._gameService.CurrentLevel,
+                "Triggers_" + this._gameService.CurrentLevel))
       {
         if (!entity.Contains<SkipRenderAddon>())
         {
           TextureAddon addon1 = entity.GetAddon<TextureAddon>();
           PositionAddon addon2 = entity.GetAddon<PositionAddon>();
-          Rectangle rectangle = new Rectangle(0, 0, addon1.Texture.Width, addon1.Texture.Height);
+
+          // RnD: hotfix
+          Rectangle rectangle = default;
+          if (addon1.Texture != null)
+            rectangle = new Rectangle(0, 0, addon1.Texture.Width, addon1.Texture.Height);
+          else
+            rectangle = new Rectangle(0, 0, 100, 100);
+
           if (entity.Contains<SourceRectangleAddon>())
             rectangle = entity.GetAddon<SourceRectangleAddon>().SourceRectangle;
-          if (entity.Contains<FrameArrayAddon, SpriteSheetAddon>())
-          {
-            FrameArrayAddon addon3 = entity.GetAddon<FrameArrayAddon>();
-            SpriteSheetAddon addon4 = entity.GetAddon<SpriteSheetAddon>();
-            this._spriteBatch.DrawFrame(addon1.Texture, addon2.Position, addon4.Rows, addon4.Cols, addon3.Current, new Color?(Color.White));
-          }
-          else
-            this._spriteBatch.Draw(addon1.Texture, addon2.Position, new Rectangle?(rectangle), Color.White, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+
+                    if (entity.Contains<FrameArrayAddon, SpriteSheetAddon>())
+                    {
+                        FrameArrayAddon addon3 = entity.GetAddon<FrameArrayAddon>();
+                        SpriteSheetAddon addon4 = entity.GetAddon<SpriteSheetAddon>();
+
+                        this._spriteBatch.DrawFrame(addon1.Texture, addon2.Position, addon4.Rows,
+                            addon4.Cols, addon3.Current, new Color?(Color.White));
+                    }
+                    else
+                    {
+                        if (addon1.Texture == null)
+                        {
+                            addon1.Texture = new Texture2DContainer();
+                            addon1.Texture.Current = new Texture2D(this._graphicsDevice, 100, 100);
+                        }
+                        this._spriteBatch.Draw(addon1.Texture, addon2.Position, new Rectangle?(rectangle),
+                            Color.White, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+                    }
         }
       }
       this._spriteBatch.End();
       this._graphicsDevice.SetRenderTarget((RenderTarget2D) null);
-      this._profileService.Profile[nameof (ResolutionRenderingSystem)] = now.Subtract(DateTime.Now).TotalMilliseconds;
+      this._profileService.Profile[nameof (ResolutionRenderingSystem)] 
+                = now.Subtract(DateTime.Now).TotalMilliseconds;
     }
   }
 }

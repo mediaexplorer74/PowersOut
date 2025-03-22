@@ -61,12 +61,16 @@ namespace GameManager.Factories
       fakeFurniture.Add<TextureAddon>(new TextureAddon(requiredService.Load<ITexture2DContainer>(assetName)));
       fakeFurniture.Add<SourceRectangleAddon>(new SourceRectangleAddon(sourceRectangle));
       fakeFurniture.Add<PositionAddon>(new PositionAddon(position));
-      fakeFurniture.Add<BoundsAddon>(new BoundsAddon(new Rectangle(0, 0, sourceRectangle.Width, sourceRectangle.Height)));
+      fakeFurniture.Add<BoundsAddon>(new BoundsAddon(new Rectangle(0, 0, 
+          sourceRectangle.Width, sourceRectangle.Height)));
+
       fakeFurniture.Add<FakeFurnitureAddon>(new FakeFurnitureAddon());
       fakeFurniture.Add<WallAddon>(new WallAddon());
+
       if (!string.IsNullOrWhiteSpace(message))
         fakeFurniture.Add<TextAddon>(new TextAddon(message));
       fakeFurniture.Add<ExpressionAddon>(new ExpressionAddon(expression));
+
       return fakeFurniture;
     }
 
@@ -84,12 +88,16 @@ namespace GameManager.Factories
       IEntity doorSpawn = serviceProvider.AddEntity("Walls_" + level);
       doorSpawn.Add<PositionAddon>(new PositionAddon(position));
       doorSpawn.Add<TextureAddon>(new TextureAddon(requiredService.Load<ITexture2DContainer>(assetName)));
-      doorSpawn.Add<BoundsAddon>(new BoundsAddon(new Rectangle(0, 0, sourceRectangle.Width, sourceRectangle.Height)));
+      doorSpawn.Add<BoundsAddon>(new BoundsAddon(new Rectangle(0, 0, 
+          sourceRectangle.Width, sourceRectangle.Height)));
+
       doorSpawn.Add<SourceRectangleAddon>(new SourceRectangleAddon(sourceRectangle));
       doorSpawn.Add<DoorAddon>(new DoorAddon(door));
       doorSpawn.Add<WallAddon>(new WallAddon());
+
       if (!string.IsNullOrWhiteSpace(message))
         doorSpawn.Add<TextAddon>(new TextAddon(message));
+
       doorSpawn.Add<ExpressionAddon>(new ExpressionAddon(expression));
       return doorSpawn;
     }
@@ -112,14 +120,21 @@ namespace GameManager.Factories
       if (assetName == "")
         assetName = null;
 
-      pickup1.Add<TextureAddon>(new TextureAddon(assetName == null ? requiredService1.CreateRectangle(sourceRectangle.Width, sourceRectangle.Height, new Color?(Color.Black)) : requiredService2.Load<ITexture2DContainer>(assetName)));
+      pickup1.Add<TextureAddon>(new TextureAddon(assetName == null 
+          ? requiredService1.CreateRectangle(sourceRectangle.Width, sourceRectangle.Height, 
+               new Color?(Color.Black)) 
+          : requiredService2.Load<ITexture2DContainer>(assetName)));
       pickup1.Add<PositionAddon>(new PositionAddon(position));
-      pickup1.Add<BoundsAddon>(new BoundsAddon(new Rectangle(0, 0, sourceRectangle.Width, sourceRectangle.Height)));
+      pickup1.Add<BoundsAddon>(new BoundsAddon(
+          new Rectangle(0, 0, sourceRectangle.Width, sourceRectangle.Height)));
+
       if (assetName != null)
         pickup1.Add<SourceRectangleAddon>(new SourceRectangleAddon(sourceRectangle));
+
       pickup1.Add<PickupAddon>(new PickupAddon(pickup));
       if (!string.IsNullOrWhiteSpace(message))
         pickup1.Add<TextAddon>(new TextAddon(message));
+
       pickup1.Add<ExpressionAddon>(new ExpressionAddon(expression));
       return pickup1;
     }
@@ -134,7 +149,10 @@ namespace GameManager.Factories
       IContentManagerContainer requiredService = serviceProvider.GetRequiredService<IContentManagerContainer>();
       IEntity startingBed = serviceProvider.AddEntity("Walls_" + level);
       startingBed.Add<PositionAddon>(new PositionAddon(position));
-      startingBed.Add<TextureAddon>(new TextureAddon(requiredService.Load<ITexture2DContainer>("character/Sleeping_Anna")));
+
+      startingBed.Add<TextureAddon>(
+          new TextureAddon(requiredService.Load<ITexture2DContainer>("character/Sleeping_Anna")));
+
       startingBed.Add<SpriteSheetAddon>(new SpriteSheetAddon(3));
       startingBed.Add<FrameArrayAddon>(new FrameArrayAddon(new int[1], -1));
       startingBed.Add<BoundsAddon>(new BoundsAddon(new Rectangle(0, 0, 32, 64)));

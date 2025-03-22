@@ -48,20 +48,27 @@ namespace GameManager.Systems
     public void OnUpdate()
     {
       DateTime now = DateTime.Now;
+
       IEntity entity1 = Enumerable.FirstOrDefault<IEntity>((IEnumerable<IEntity>) this._playerQuery);
+
       if (entity1 != null)
       {
         PositionAddon addon1 = entity1.GetAddon<PositionAddon>();
         BoundsAddon addon2 = entity1.GetAddon<BoundsAddon>();
-        Rectangle rectangle1 = new Rectangle((int) addon1.Position.X + addon2.Bounds.X, (int) addon1.Position.Y + addon2.Bounds.Y, addon2.Bounds.Width, addon2.Bounds.Height);
-        foreach (IEntity entity2 in (IEnumerable<IEntity>) this._query.WhereLayer("Triggers_" + this._gameService.CurrentLevel))
+        Rectangle rectangle1 = new Rectangle((int) addon1.Position.X + addon2.Bounds.X, 
+            (int) addon1.Position.Y + addon2.Bounds.Y, addon2.Bounds.Width, addon2.Bounds.Height);
+        foreach (IEntity entity2 
+                    in (IEnumerable<IEntity>) this._query.WhereLayer(
+                        "Triggers_" + this._gameService.CurrentLevel))
         {
           PositionAddon addon3 = entity2.GetAddon<PositionAddon>();
           BoundsAddon addon4 = entity2.GetAddon<BoundsAddon>();
-          Rectangle rectangle2 = new Rectangle((int) addon3.Position.X + addon4.Bounds.X, (int) addon3.Position.Y + addon4.Bounds.Y, addon4.Bounds.Width, addon4.Bounds.Height);
+          Rectangle rectangle2 = new Rectangle((int) addon3.Position.X + addon4.Bounds.X, 
+              (int) addon3.Position.Y + addon4.Bounds.Y, addon4.Bounds.Width, addon4.Bounds.Height);
           if (rectangle1.IntersectsWith(rectangle2))
           {
             PickupAddon addon5 = entity2.GetAddon<PickupAddon>();
+
             if (addon5.Pickup == Pickup.FlashLight)
             {
               this._gameService.HasFlashLight = true;
@@ -73,12 +80,16 @@ namespace GameManager.Systems
             }
             else
               this._gameService.FoundKeys.Add(addon5.Pickup);
+
             this._eventQueue.DispatchEvent<PickupEvent>(new PickupEvent(addon5.Pickup));
+
             this._eventQueue.DispatchEvent<RemoveEntityEvent>(new RemoveEntityEvent(entity2));
+
             if (entity2.Contains<TextAddon>())
             {
               ExpressionAddon addon7 = entity2.GetAddon<ExpressionAddon>();
-              this._eventQueue.DispatchEvent<TriggerSpeechBubbleEvent>(new TriggerSpeechBubbleEvent(entity2.GetAddon<TextAddon>().Text, addon7.Expression));
+              this._eventQueue.DispatchEvent<TriggerSpeechBubbleEvent>(
+                  new TriggerSpeechBubbleEvent(entity2.GetAddon<TextAddon>().Text, addon7.Expression));
             }
           }
         }
