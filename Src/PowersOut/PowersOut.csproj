@@ -1,0 +1,623 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{87838199-376B-4736-A92E-7105862395B0}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GameManager</RootNamespace>
+    <AssemblyName>PowersOut</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>MonoTone_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <LangVersion>latest</LangVersion>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <AppInstallerUpdateFrequency>0</AppInstallerUpdateFrequency>
+    <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
+    <PackageCertificateThumbprint>974A0ACF17DF6B9B279CF5328627A4392B4E62FB</PackageCertificateThumbprint>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BlueJay.Common\Addons\BoundsAddon.cs" />
+    <Compile Include="BlueJay.Common\Addons\ColorAddon.cs" />
+    <Compile Include="BlueJay.Common\Addons\DebugAddon.cs" />
+    <Compile Include="BlueJay.Common\Addons\FrameAddon.cs" />
+    <Compile Include="BlueJay.Common\Addons\PositionAddon.cs" />
+    <Compile Include="BlueJay.Common\Addons\SizeAddon.cs" />
+    <Compile Include="BlueJay.Common\Addons\SpriteEffectsAddon.cs" />
+    <Compile Include="BlueJay.Common\Addons\SpriteSheetAddon.cs" />
+    <Compile Include="BlueJay.Common\Addons\TextureAddon.cs" />
+    <Compile Include="BlueJay.Common\Addons\VelocityAddon.cs" />
+    <Compile Include="BlueJay.Common\EnumHelper.cs" />
+    <Compile Include="BlueJay.Common\Events\GamePad\GamePadButtonDownEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\GamePad\GamePadButtonEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\GamePad\GamePadButtonUpEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\GamePad\GamePadStickEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\GamePad\GamePadTriggerEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Keyboard\KeyboardDownEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Keyboard\KeyboardEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Keyboard\KeyboardPressEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Keyboard\KeyboardUpEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Mouse\MouseDownEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Mouse\MouseEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Mouse\MouseMoveEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Mouse\MouseUpEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Mouse\ScrollEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Touch\TouchDownEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Touch\TouchEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Touch\TouchMoveEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\Touch\TouchUpEvent.cs" />
+    <Compile Include="BlueJay.Common\Events\ViewportChangeEvent.cs" />
+    <Compile Include="BlueJay.Common\Systems\ClearSystem.cs" />
+    <Compile Include="BlueJay.Common\Systems\DebugSystem.cs" />
+    <Compile Include="BlueJay.Common\Systems\FPSSystem.cs" />
+    <Compile Include="BlueJay.Common\Systems\FrameUpdateSystem.cs" />
+    <Compile Include="BlueJay.Common\Systems\GamepadSystem.cs" />
+    <Compile Include="BlueJay.Common\Systems\KeyboardSystem.cs" />
+    <Compile Include="BlueJay.Common\Systems\MouseSystem.cs" />
+    <Compile Include="BlueJay.Common\Systems\RenderingSystem.cs" />
+    <Compile Include="BlueJay.Common\Systems\TouchSystem.cs" />
+    <Compile Include="BlueJay.Common\Systems\VelocitySystem.cs" />
+    <Compile Include="BlueJay.Common\Systems\ViewportSystem.cs" />
+    <Compile Include="BlueJay.Component.System\AddonKey.cs" />
+    <Compile Include="BlueJay.Component.System\AllQuery.cs" />
+    <Compile Include="BlueJay.Component.System\Collections\FontCollection.cs" />
+    <Compile Include="BlueJay.Component.System\Entity.cs" />
+    <Compile Include="BlueJay.Component.System\Events\AddAddonEvent.cs" />
+    <Compile Include="BlueJay.Component.System\Events\RemoveAddonEvent.cs" />
+    <Compile Include="BlueJay.Component.System\Events\UpdateAddonEvent.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IAddon.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IDrawSystem.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IEntity.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IFontCollection.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\ILayer.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\ILayers.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IQuery.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IQuery`1.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IQuery`10.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IQuery`2.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IQuery`3.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IQuery`4.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IQuery`5.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IQuery`6.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IQuery`7.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IQuery`8.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IQuery`9.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\ISystem.cs" />
+    <Compile Include="BlueJay.Component.System\Interfaces\IUpdateSystem.cs" />
+    <Compile Include="BlueJay.Component.System\KeyHelper.cs" />
+    <Compile Include="BlueJay.Component.System\Layer.cs" />
+    <Compile Include="BlueJay.Component.System\Layers.cs" />
+    <Compile Include="BlueJay.Component.System\Query.cs" />
+    <Compile Include="BlueJay.Component.System\QueryEnumerator.cs" />
+    <Compile Include="BlueJay.Component.System\Query`1.cs" />
+    <Compile Include="BlueJay.Component.System\Query`10.cs" />
+    <Compile Include="BlueJay.Component.System\Query`2.cs" />
+    <Compile Include="BlueJay.Component.System\Query`3.cs" />
+    <Compile Include="BlueJay.Component.System\Query`4.cs" />
+    <Compile Include="BlueJay.Component.System\Query`5.cs" />
+    <Compile Include="BlueJay.Component.System\Query`6.cs" />
+    <Compile Include="BlueJay.Component.System\Query`7.cs" />
+    <Compile Include="BlueJay.Component.System\Query`8.cs" />
+    <Compile Include="BlueJay.Component.System\Query`9.cs" />
+    <Compile Include="BlueJay.Component.System\ServiceCollectionExtensions.cs" />
+    <Compile Include="BlueJay.Component.System\ServiceProviderExtensions.cs" />
+    <Compile Include="BlueJay.Core\Camera.cs" />
+    <Compile Include="BlueJay.Core\Containers\GraphicsDeviceContainer.cs" />
+    <Compile Include="BlueJay.Core\Containers\IGraphicsDeviceContainer.cs" />
+    <Compile Include="BlueJay.Core\Containers\ISpriteBatchContainer.cs" />
+    <Compile Include="BlueJay.Core\Containers\ISpriteFontContainer.cs" />
+    <Compile Include="BlueJay.Core\Containers\SpriteBatchContainer.cs" />
+    <Compile Include="BlueJay.Core\Containers\SpriteFontContainer.cs" />
+    <Compile Include="BlueJay.Core\Containers\Texture2DContainer.cs" />
+    <Compile Include="BlueJay.Core\Container\ITexture2DContainer.cs" />
+    <Compile Include="BlueJay.Core\ContentExtensions.cs" />
+    <Compile Include="BlueJay.Core\DeltaService.cs" />
+    <Compile Include="BlueJay.Core\IGraphicsDeviceServiceExtensions.cs" />
+    <Compile Include="BlueJay.Core\Interfaces\ICamera.cs" />
+    <Compile Include="BlueJay.Core\Interfaces\IDeltaService.cs" />
+    <Compile Include="BlueJay.Core\MathHelper.cs" />
+    <Compile Include="BlueJay.Core\NinePatch.cs" />
+    <Compile Include="BlueJay.Core\RandomExtensions.cs" />
+    <Compile Include="BlueJay.Core\RectangleExtensions.cs" />
+    <Compile Include="BlueJay.Core\RectangleHelper.cs" />
+    <Compile Include="BlueJay.Core\RectangleSide.cs" />
+    <Compile Include="BlueJay.Core\ServiceCollectionExtensions.cs" />
+    <Compile Include="BlueJay.Core\Size.cs" />
+    <Compile Include="BlueJay.Core\SpriteBatchExtension.cs" />
+    <Compile Include="BlueJay.Core\TextureFont.cs" />
+    <Compile Include="BlueJay.Events\CallbackListener`1.cs" />
+    <Compile Include="BlueJay.Events\CollectionsMarshal.cs" />
+    <Compile Include="BlueJay.Events\EventListenerWeight.cs" />
+    <Compile Include="BlueJay.Events\EventListener`1.cs" />
+    <Compile Include="BlueJay.Events\EventProcessor.cs" />
+    <Compile Include="BlueJay.Events\EventQueue.cs" />
+    <Compile Include="BlueJay.Events\Event`1.cs" />
+    <Compile Include="BlueJay.Events\Interfaces\IEvent.cs" />
+    <Compile Include="BlueJay.Events\Interfaces\IEventListener.cs" />
+    <Compile Include="BlueJay.Events\Interfaces\IEventListener`1.cs" />
+    <Compile Include="BlueJay.Events\Interfaces\IEventProcessor.cs" />
+    <Compile Include="BlueJay.Events\Interfaces\IEventQueue.cs" />
+    <Compile Include="BlueJay.Events\Interfaces\IEvent`1.cs" />
+    <Compile Include="BlueJay.Events\Interfaces\IInternalEvent.cs" />
+    <Compile Include="BlueJay.Events\Lifecycle\ActivateEvent.cs" />
+    <Compile Include="BlueJay.Events\Lifecycle\DeactivateEvent.cs" />
+    <Compile Include="BlueJay.Events\Lifecycle\DrawEvent.cs" />
+    <Compile Include="BlueJay.Events\Lifecycle\ExitEvent.cs" />
+    <Compile Include="BlueJay.Events\Lifecycle\UpdateEvent.cs" />
+    <Compile Include="BlueJay.Events\ServiceCollectionExtensions.cs" />
+    <Compile Include="BlueJay.Events\ServiceProviderExtensions.cs" />
+    <Compile Include="BlueJay.Events\TimeoutEvent.cs" />
+    <Compile Include="BlueJay.Events\ZipDisposable.cs" />
+    <Compile Include="BlueJay\ComponentSystemGame.cs" />
+    <Compile Include="BlueJay\DrawableSystemCollection.cs" />
+    <Compile Include="BlueJay\EventListeners\DrawEventListener.cs" />
+    <Compile Include="BlueJay\EventListeners\UpdateEventListener.cs" />
+    <Compile Include="BlueJay\Interfaces\IView.cs" />
+    <Compile Include="BlueJay\Interfaces\IViewCollection.cs" />
+    <Compile Include="BlueJay\ServiceProviderExtensions.cs" />
+    <Compile Include="BlueJay\SystemTypeCollection.cs" />
+    <Compile Include="BlueJay\Utils\ContentManagerContainer.cs" />
+    <Compile Include="BlueJay\Utils\IContentManagerContainer.cs" />
+    <Compile Include="BlueJay\Utils\IScreenViewport.cs" />
+    <Compile Include="BlueJay\Utils\ScreenViewport.cs" />
+    <Compile Include="BlueJay\Views\View.cs" />
+    <Compile Include="BlueJay\Views\ViewCollection.cs" />
+    <Compile Include="GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Game\Addon\CollisionAddon.cs" />
+    <Compile Include="Game\Addon\CountdownAddon.cs" />
+    <Compile Include="Game\Addon\DirectionAddon.cs" />
+    <Compile Include="Game\Addon\DirectionRayAddon.cs" />
+    <Compile Include="Game\Addon\DoorAddon.cs" />
+    <Compile Include="Game\Addon\EndTriggerAddon.cs" />
+    <Compile Include="Game\Addon\ExitAddon.cs" />
+    <Compile Include="Game\Addon\ExpressionAddon.cs" />
+    <Compile Include="Game\Addon\FakeFurnitureAddon.cs" />
+    <Compile Include="Game\Addon\FrameArrayAddon.cs" />
+    <Compile Include="Game\Addon\LevelAddon.cs" />
+    <Compile Include="Game\Addon\NinePatchAddon.cs" />
+    <Compile Include="Game\Addon\PickupAddon.cs" />
+    <Compile Include="Game\Addon\PlayerAddon.cs" />
+    <Compile Include="Game\Addon\PortraitAddon.cs" />
+    <Compile Include="Game\Addon\SkipRenderAddon.cs" />
+    <Compile Include="Game\Addon\SourceRectangleAddon.cs" />
+    <Compile Include="Game\Addon\SpeechBubbleAddon.cs" />
+    <Compile Include="Game\Addon\StartingBedAddon.cs" />
+    <Compile Include="Game\Addon\TextAddon.cs" />
+    <Compile Include="Game\Addon\WallAddon.cs" />
+    <Compile Include="Game\Data\LdtkEnum.cs" />
+    <Compile Include="Game\Data\LdtkEnumItem.cs" />
+    <Compile Include="Game\Data\LdtkEnumItemRect.cs" />
+    <Compile Include="Game\Data\LdtkTileset.cs" />
+    <Compile Include="Game\Direction.cs" />
+    <Compile Include="Game\Door.cs" />
+    <Compile Include="Game\Events\EventHandlers\EndEvent.cs" />
+    <Compile Include="Game\Events\EventHandlers\EndTriggerEventListener.cs" />
+    <Compile Include="Game\Events\EventHandlers\GamePadButtonDownEventListener.cs" />
+    <Compile Include="Game\Events\EventHandlers\GamePadButtonUpEventListener.cs" />
+    <Compile Include="Game\Events\EventHandlers\GamePadStickEventListener.cs" />
+    <Compile Include="Game\Events\EventHandlers\KeyboardPressEventListener.cs" />
+    <Compile Include="Game\Events\EventHandlers\KeyboardUpEventListener.cs" />
+    <Compile Include="Game\Events\EventHandlers\LevelTransitionEventListener.cs" />
+    <Compile Include="Game\Events\EventHandlers\PickupEventListener.cs" />
+    <Compile Include="Game\Events\EventHandlers\RemoveEntityEventListener.cs" />
+    <Compile Include="Game\Events\EventHandlers\TriggerSpeechBubbleEventListener.cs" />
+    <Compile Include="Game\Events\EventHandlers\ViewportChangeEventListener.cs" />
+    <Compile Include="Game\Events\LevelTransitionEvent.cs" />
+    <Compile Include="Game\Events\PickupEvent.cs" />
+    <Compile Include="Game\Events\RemoveEntityEvent.cs" />
+    <Compile Include="Game\Events\TriggerSpeechBubbleEvent.cs" />
+    <Compile Include="Game\Expression.cs" />
+    <Compile Include="Game\Factories\BackgroundFactory.cs" />
+    <Compile Include="Game\Factories\EntityFactory.cs" />
+    <Compile Include="Game\Factories\PlayerFactory.cs" />
+    <Compile Include="Game\Factories\SpeechFactory.cs" />
+    <Compile Include="Game\Layers.cs" />
+    <Compile Include="Game\LDtkLoader.cs" />
+    <Compile Include="Game\Line2.cs" />
+    <Compile Include="Game\Pickup.cs" />
+    <Compile Include="Game\Game1.cs" />
+    <Compile Include="Game\Ray2.cs" />
+    <Compile Include="Game\Services\GameService.cs" />
+    <Compile Include="Game\Services\ProfileService.cs" />
+    <Compile Include="Game\Services\RenderTargetService.cs" />
+    <Compile Include="Game\Services\SoundService.cs" />
+    <Compile Include="Game\Systems\AnnaAnimationSystem.cs" />
+    <Compile Include="Game\Systems\BoundsRenderingSystem.cs" />
+    <Compile Include="Game\Systems\CountdownRemoveSystem.cs" />
+    <Compile Include="Game\Systems\DirectionRayCollisionFakeFurnitureSystem.cs" />
+    <Compile Include="Game\Systems\DirectionRayDrawSystem.cs" />
+    <Compile Include="Game\Systems\DirectionRayUpdateSystem.cs" />
+    <Compile Include="Game\Systems\DirectionSystem.cs" />
+    <Compile Include="Game\Systems\EndRenderingSystem.cs" />
+    <Compile Include="Game\Systems\EndTriggerSystem.cs" />
+    <Compile Include="Game\Systems\ExitTriggerSystem.cs" />
+    <Compile Include="Game\Systems\FlashLightRenderSystem.cs" />
+    <Compile Include="Game\Systems\FrameArraySystem.cs" />
+    <Compile Include="Game\Systems\FullRenderSystem.cs" />
+    <Compile Include="Game\Systems\LightningDrawSystem.cs" />
+    <Compile Include="Game\Systems\LightningUpdateSystem.cs" />
+    <Compile Include="Game\Systems\PickupSystem.cs" />
+    <Compile Include="Game\Systems\POVelocitySystem.cs" />
+    <Compile Include="Game\Systems\ProfileRenderSystem.cs" />
+    <Compile Include="Game\Systems\ResolutionRenderingSystem.cs" />
+    <Compile Include="Game\Systems\SpeechBubbleRenderingSystem.cs" />
+    <Compile Include="Game\Systems\StartingSequenceSystem.cs" />
+    <Compile Include="Game\Systems\TitleSystem.cs" />
+    <Compile Include="Game\Systems\ViewportCameraSystem.cs" />
+    <Compile Include="Game\Systems\WallCollisionSystem.cs" />
+    <Compile Include="Game\ViewportCamera.cs" />
+    <Compile Include="Game\Views\EndView.cs" />
+    <Compile Include="Game\Views\GameView.cs" />
+    <Compile Include="Game\Views\TitleView.cs" />
+    <Compile Include="Glob.cs" />
+    <Compile Include="NVorbis\Codebook.cs" />
+    <Compile Include="NVorbis\Contracts\GetPacketGranuleCount.cs" />
+    <Compile Include="NVorbis\Contracts\HuffmanListNode.cs" />
+    <Compile Include="NVorbis\Contracts\ICodebook.cs" />
+    <Compile Include="NVorbis\Contracts\IContainerReader.cs" />
+    <Compile Include="NVorbis\Contracts\IFactory.cs" />
+    <Compile Include="NVorbis\Contracts\IFloor.cs" />
+    <Compile Include="NVorbis\Contracts\IFloorData.cs" />
+    <Compile Include="NVorbis\Contracts\IHuffman.cs" />
+    <Compile Include="NVorbis\Contracts\IMapping.cs" />
+    <Compile Include="NVorbis\Contracts\IMdct.cs" />
+    <Compile Include="NVorbis\Contracts\IMode.cs" />
+    <Compile Include="NVorbis\Contracts\IPacket.cs" />
+    <Compile Include="NVorbis\Contracts\IPacketProvider.cs" />
+    <Compile Include="NVorbis\Contracts\IResidue.cs" />
+    <Compile Include="NVorbis\Contracts\IStreamDecoder.cs" />
+    <Compile Include="NVorbis\Contracts\IStreamStats.cs" />
+    <Compile Include="NVorbis\Contracts\ITagData.cs" />
+    <Compile Include="NVorbis\Contracts\IVorbisReader.cs" />
+    <Compile Include="NVorbis\Contracts\NewStreamHandler.cs" />
+    <Compile Include="NVorbis\Contracts\Ogg\ICrc.cs" />
+    <Compile Include="NVorbis\Contracts\Ogg\IForwardOnlyPacketProvider.cs" />
+    <Compile Include="NVorbis\Contracts\Ogg\IPacketReader.cs" />
+    <Compile Include="NVorbis\Contracts\Ogg\IPageData.cs" />
+    <Compile Include="NVorbis\Contracts\Ogg\IPageReader.cs" />
+    <Compile Include="NVorbis\Contracts\Ogg\IStreamPageReader.cs" />
+    <Compile Include="NVorbis\Contracts\Ogg\PageFlags.cs" />
+    <Compile Include="NVorbis\Contracts\ParameterChangeEventArgs.cs" />
+    <Compile Include="NVorbis\DataPacket.cs" />
+    <Compile Include="NVorbis\Extensions.cs" />
+    <Compile Include="NVorbis\Factory.cs" />
+    <Compile Include="NVorbis\Floor0.cs" />
+    <Compile Include="NVorbis\Floor1.cs" />
+    <Compile Include="NVorbis\Huffman.cs" />
+    <Compile Include="NVorbis\IContainerReader.cs" />
+    <Compile Include="NVorbis\IPacketProvider.cs" />
+    <Compile Include="NVorbis\IVorbisStreamStatus.cs" />
+    <Compile Include="NVorbis\Mapping.cs" />
+    <Compile Include="NVorbis\Mdct.cs" />
+    <Compile Include="NVorbis\Mode.cs" />
+    <Compile Include="NVorbis\NewStreamEventArgs.cs" />
+    <Compile Include="NVorbis\Ogg\ContainerReader.cs" />
+    <Compile Include="NVorbis\Ogg\Crc.cs" />
+    <Compile Include="NVorbis\Ogg\ForwardOnlyPacketProvider.cs" />
+    <Compile Include="NVorbis\Ogg\ForwardOnlyPageReader.cs" />
+    <Compile Include="NVorbis\Ogg\Packet.cs" />
+    <Compile Include="NVorbis\Ogg\PacketProvider.cs" />
+    <Compile Include="NVorbis\Ogg\PageReader.cs" />
+    <Compile Include="NVorbis\Ogg\PageReaderBase.cs" />
+    <Compile Include="NVorbis\Ogg\StreamPageReader.cs" />
+    <Compile Include="NVorbis\Residue0.cs" />
+    <Compile Include="NVorbis\Residue1.cs" />
+    <Compile Include="NVorbis\Residue2.cs" />
+    <Compile Include="NVorbis\StreamDecoder.cs" />
+    <Compile Include="NVorbis\StreamStats.cs" />
+    <Compile Include="NVorbis\TagData.cs" />
+    <Compile Include="NVorbis\Utils.cs" />
+    <Compile Include="NVorbis\VorbisReader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\Logo.scale-125.png" />
+    <Content Include="Assets\Logo.scale-150.png" />
+    <Content Include="Assets\Logo.scale-200.png" />
+    <Content Include="Assets\Logo.scale-400.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\SmallLogo.scale-100.png" />
+    <Content Include="Assets\SmallLogo.scale-125.png" />
+    <Content Include="Assets\SmallLogo.scale-150.png" />
+    <Content Include="Assets\SmallLogo.scale-200.png" />
+    <Content Include="Assets\SmallLogo.scale-400.png" />
+    <Content Include="Assets\SmallLogo.targetsize-16.png" />
+    <Content Include="Assets\SmallLogo.targetsize-24.png" />
+    <Content Include="Assets\SmallLogo.targetsize-256.png" />
+    <Content Include="Assets\SmallLogo.targetsize-32.png" />
+    <Content Include="Assets\SmallLogo.targetsize-48.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.backup.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\WideTile.scale-100.png" />
+    <Content Include="Assets\WideTile.scale-125.png" />
+    <Content Include="Assets\WideTile.scale-150.png" />
+    <Content Include="Assets\WideTile.scale-200.png" />
+    <Content Include="Assets\WideTile.scale-400.png" />
+    <Content Include="Content\Sound\Effects\weather-sounds\rain\rainy-ambience-200033.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sound\Music\score-v2.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Anna_Boxes.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Anna_Sprite_Walk.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bitmap-Font.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\character\AnaTestPortrait.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\character\Anna_Sprite_Express.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\character\Anna_Sprite_Flashlight-sheet.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\character\Anna_Sprite_Turnaround.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\character\FlashLightBeam.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\character\PowersOutEndScene.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\character\Sleeping_Anna.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\dialogue\NinePatch.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\items\Credits.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\items\Doors_Keys_Misc.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\items\LightSelector.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\items\PowersOutTitle_Off.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\items\PowersOutTitle_On.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\items\RepeatingDither.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\items\TitleOptions.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels.ldtk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\LightingShader.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\SampleProject.ldtk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sound\Effects\weather-sounds\rain\looped-rain.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sound\Effects\weather-sounds\thunder\loud-thunder-192165.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sound\Music\score-v2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TestFont.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\tiles\InteriorTilesLITE.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\tiles\Rails&amp;Boxes.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\tiles\Rails_Boxes.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="GamePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
+      <Version>1.1.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+      <Version>1.1.4</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="MonoGame.Framework.WindowsUniversal">
+      <Version>3.7.1.189</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Json">
+      <Version>7.0.0-preview.1.22076.8</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Thread">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.6.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LDtkMonogame\LDtkMonogame.csproj">
+      <Project>{9df0023c-c75f-451f-9e2d-1448ad04794d}</Project>
+      <Name>LDtkMonogame</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!--Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" /-->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
