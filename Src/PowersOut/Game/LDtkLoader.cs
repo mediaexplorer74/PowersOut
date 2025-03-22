@@ -128,13 +128,20 @@ namespace GameManager
             while ((num = Array.IndexOf<int>(wallGrid.IntGrid, 1)) != -1)
             {
               Point point = new Point(num % wallGrid.Width, num / wallGrid.Width);
-              Point bottomCorner = LDtkLoader.CalculateBottomCorner(point, wallGrid.Width, wallGrid.Height, wallGrid.IntGrid);
+              Point bottomCorner = LDtkLoader.CalculateBottomCorner(point, 
+                  wallGrid.Width, wallGrid.Height, wallGrid.IntGrid);
               if (!(point == bottomCorner))
               {
-                Vector2 position = new Vector2((float) (point.X * wallGrid.GridSize), (float) (point.Y * wallGrid.GridSize));
-                Rectangle bounds = new Rectangle(0, 0, (bottomCorner.X - point.X) * wallGrid.GridSize, (bottomCorner.Y - point.Y) * wallGrid.GridSize);
+                Vector2 position = new Vector2((float) (point.X * wallGrid.GridSize), 
+                    (float) (point.Y * wallGrid.GridSize));
+
+                Rectangle bounds = new Rectangle(0, 0, (bottomCorner.X - point.X) 
+                    * wallGrid.GridSize, (bottomCorner.Y - point.Y) * wallGrid.GridSize);
+
                 serviceProvider.CreateWall(position, bounds, level.Identifier);
-                LDtkLoader._entityCount["Wall"] = CollectionExtensions.GetValueOrDefault<string, int>((IReadOnlyDictionary<string, int>) LDtkLoader._entityCount, "Wall") + 1;
+
+                LDtkLoader._entityCount["Wall"] = CollectionExtensions.GetValueOrDefault<string, int>(
+                    (IReadOnlyDictionary<string, int>) LDtkLoader._entityCount, "Wall") + 1;
                 LDtkLoader.ZeroGrid(point, bottomCorner, wallGrid.Width, wallGrid.IntGrid);
               }
               else
@@ -160,15 +167,19 @@ namespace GameManager
       int num2 = 0;
       while (true)
       {
-        while (num1 != num2 || num1 + start.X + 1 > width || num2 + start.Y + 1 > height || !LDtkLoader.IsAllWalls(start.X, start.Y, num1 + 1, num2 + 1, width, grid))
+        while (num1 != num2 || num1 + start.X + 1 > width
+                    || num2 + start.Y + 1 > height 
+                    || !LDtkLoader.IsAllWalls(start.X, start.Y, num1 + 1, num2 + 1, width, grid))
         {
-          if ((num1 == num2 || num1 > num2) && num1 + start.X + 1 <= width && LDtkLoader.IsAllWalls(start.X, start.Y, num1 + 1, num2, width, grid))
+          if ((num1 == num2 || num1 > num2) && num1 + start.X + 1 <= width 
+                        && LDtkLoader.IsAllWalls(start.X, start.Y, num1 + 1, num2, width, grid))
           {
             ++num1;
           }
           else
           {
-            if (num2 != num1 && num2 <= num1 || num2 + start.Y + 1 > height || !LDtkLoader.IsAllWalls(start.X, start.Y, num1, num2 + 1, width, grid))
+            if (num2 != num1 && num2 <= num1 || num2 + start.Y + 1 > height 
+                            || !LDtkLoader.IsAllWalls(start.X, start.Y, num1, num2 + 1, width, grid))
               return new Point(num1, num2) + start;
             ++num2;
           }

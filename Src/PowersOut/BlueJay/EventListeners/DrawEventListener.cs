@@ -24,7 +24,7 @@ namespace BlueJay.EventListeners
     public override void Process(IEvent<DrawEvent> evt)
     {
       //RnD
-      Span<ISystem> span = default;// CollectionsMarshal.AsSpan<ISystem>((List<ISystem>) this._systems);
+      Span<ISystem> span = CollectionsMarshal.AsSpan<ISystem>((List<ISystem>) this._systems);
       for (int index = 0; index < span.Length; ++index)
       {
         ISystem system = span[index];

@@ -38,8 +38,14 @@ namespace GameManager.Systems
     public void OnDraw()
     {
       DateTime now = DateTime.Now;
-      this._effect.Parameters["LightMapTexture"].SetValue((Texture) this._renderTargetService.LightTarget);
-      this._effect.Parameters["FlashLightTexture"].SetValue((Texture) this._renderTargetService.FlashLightTarget);
+
+            // RnD : hotfix
+      if (this._effect != null)
+        this._effect.Parameters["LightMapTexture"].SetValue((Texture) this._renderTargetService.LightTarget);
+
+      if (this._effect != null)
+        this._effect.Parameters["FlashLightTexture"].SetValue((Texture) this._renderTargetService.FlashLightTarget);
+
       this._spriteBatch.Begin(blendState: BlendState.AlphaBlend, effect: this._effect);
       this._spriteBatch.Draw(this._renderTargetService.ScreenTarget.AsContainer(), Vector2.Zero, Color.White);
       this._spriteBatch.End();

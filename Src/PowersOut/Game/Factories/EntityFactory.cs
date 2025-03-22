@@ -107,6 +107,11 @@ namespace GameManager.Factories
       IGraphicsDeviceContainer requiredService1 = serviceProvider.GetRequiredService<IGraphicsDeviceContainer>();
       IContentManagerContainer requiredService2 = serviceProvider.GetRequiredService<IContentManagerContainer>();
       IEntity pickup1 = serviceProvider.AddEntity("Triggers_" + level);
+
+      // RnD: hotfix
+      if (assetName == "")
+        assetName = null;
+
       pickup1.Add<TextureAddon>(new TextureAddon(assetName == null ? requiredService1.CreateRectangle(sourceRectangle.Width, sourceRectangle.Height, new Color?(Color.Black)) : requiredService2.Load<ITexture2DContainer>(assetName)));
       pickup1.Add<PositionAddon>(new PositionAddon(position));
       pickup1.Add<BoundsAddon>(new BoundsAddon(new Rectangle(0, 0, sourceRectangle.Width, sourceRectangle.Height)));

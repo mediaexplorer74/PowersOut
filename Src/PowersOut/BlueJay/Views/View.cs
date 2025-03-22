@@ -23,7 +23,8 @@ namespace BlueJay.Views
 
     public void Initialize(IServiceProvider serviceProvider)
     {
-      this._scope = this._scope == null ? serviceProvider.CreateScope() : throw new ArgumentException("Scope has already been created", "_scope");
+      this._scope = this._scope == null ? serviceProvider.CreateScope() 
+                : throw new ArgumentException("Scope has already been created", "_scope");
       this.ConfigureProvider(this._scope.ServiceProvider);
       this._scope.ServiceProvider.AddEventListener<DrawEventListener, DrawEvent>();
     }

@@ -10,6 +10,7 @@ using BlueJay.Core.Containers;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Diagnostics;
 
 #nullable enable
 namespace BlueJay.Utils
@@ -22,9 +23,47 @@ namespace BlueJay.Utils
 
     public T Load<T>(string assetName)
     {
-      if (Type.Equals(typeof (T), typeof (ITexture2DContainer)))
-        return (T) this._content.Load<Texture2D>(assetName).AsContainer();
-      return Type.Equals(typeof (T), typeof (ISpriteFontContainer)) ? (T) this._content.Load<SpriteFont>(assetName).AsContainer() : this._content.Load<T>(assetName);
+      T result = default;
+
+        if (Type.Equals(typeof(T), typeof(ITexture2DContainer)))
+        {
+            try
+            {
+                // RnD: hotfix
+                if (assetName == "")
+                    assetName = "Anna_Boxes";
+
+                result = (T)this._content.Load<Texture2D>(assetName).AsContainer();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[ex] content.Load<Texture2D>(assetName) error: " + ex.Message);
+            }
+        }
+
+        if (Type.Equals(typeof(T), typeof(ISpriteFontContainer)))
+        {
+            try
+            {
+                result = (T)this._content.Load<SpriteFont>(assetName).AsContainer();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[ex] content.Load<SpriteFont>(assetName) error: " + ex.Message);
+            }
+        }
+        else
+        {
+            try
+            {
+                result = this._content.Load<T>(assetName);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[ex] content.Load<T>(assetName) error: " + ex.Message);
+            }
+        }
+        return result;
     }
   }
 }

@@ -1,4 +1,4 @@
-# PowersOut 1.0-prealpha - uwp branch 
+# PowersOut 1.0-prealpha 
 ![Logo](Images/logo.png)
 
 "UWP-Remake" of ITCH.io PowersOut project.
@@ -9,18 +9,21 @@
 ## Screenshots
 ![W11](Images/sshot01.png)
 ![W11](Images/sshot02.png)
-![W11](Images/sshot03.png)
 
 
 ## Tech details
 - Publishing Year: 2025
-- Stata / status (original): Released
+- Status (original): Released
 - Platforms (original): Windows, macOS, Linux
 - Authors:	tspayne, Radaline, Xaikune, josh.w.wade
 - Janre:	Puzzle
 - Labels:	2D, Atmospheric, Pixel Art, Singleplayer
 - UWP app : Min Win. SDK is 16299, Main Win. SDK is 19041  
+- My progress : game start fixed :) Draft / Early bird (game play not tested)
 
+## TODO
+- Fix 100500 bugs
+- Do more testing
 
 ## .
 As is. No support. DIY. Learn purposes only.
