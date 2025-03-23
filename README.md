@@ -9,7 +9,7 @@
 - Status : not ready / work-in-progress (dev) 
 
 # Dev process
-![Logo](Images/logo.png)
+![Logo](Images/sshot01.png)
 
 ## TODO
 - Fix System.Text.Json (.NET Standard 1.4 compatibility needed)
