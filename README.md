@@ -1,4 +1,4 @@
-# PowersOut 1.0-prealpha - w10m15063 branch
+# PowersOut - w10m15063 branch
 ![Logo](Images/logo.png)
 
 "UWP-Remake" of ITCH.io PowersOut project. Main goal of this branch is to achieve Win sdk 15063 compatibility for this project.
