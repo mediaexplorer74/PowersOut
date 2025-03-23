@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 using Microsoft.Xna.Framework;
 
 /// <summary> The json source generator for LDtk files. </summary>
-[JsonSourceGenerationOptions(GenerationMode = JsonSourceGenerationMode.Metadata)]
+/*[JsonSourceGenerationOptions(GenerationMode = JsonSourceGenerationMode.Metadata)]
 [JsonSerializable(typeof(JsonElement))]
 [JsonSerializable(typeof(bool))]
 [JsonSerializable(typeof(bool[]))]
@@ -26,5 +26,13 @@ using Microsoft.Xna.Framework;
 [JsonSerializable(typeof(EntityReference[]))]
 [JsonSerializable(typeof(TilesetRectangle))]
 [JsonSerializable(typeof(TilesetRectangle[]))]
-[JsonSerializable(typeof(LDtkFileFull))]
-public partial class LDtkJsonFullSourceGenerator : JsonSerializerContext;
+[JsonSerializable(typeof(LDtkFileFull))]*/
+public partial class LDtkJsonFullSourceGenerator : JsonSerializerContext
+{
+    private JsonSerializerOptions serializeOptionsFull;
+
+    public LDtkJsonFullSourceGenerator(JsonSerializerOptions serializeOptionsFull)
+    {
+        this.serializeOptionsFull = serializeOptionsFull;
+    }
+}

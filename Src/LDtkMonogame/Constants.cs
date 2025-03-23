@@ -24,7 +24,7 @@ public static class Constants
             new PointConverter(),
             new GuidConverter(),
         },
-        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        //DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
         ReadCommentHandling = JsonCommentHandling.Skip,
         AllowTrailingCommas = true,
     };
@@ -44,11 +44,12 @@ public static class Constants
             new PointConverter(),
             new GuidConverter(),
         },
-        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        //DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
         ReadCommentHandling = JsonCommentHandling.Skip,
         AllowTrailingCommas = true,
     };
 
     /// <summary> The converter used internally by LDtkFileFull with JsonSerializer.Deserialize(..., Constants.SerializeOptions) not needed by the user just use .FromFile instead. </summary>
-    public static readonly LDtkJsonFullSourceGenerator JsonSourceGeneratorFull = new(SerializeOptionsFull);
+    public static readonly LDtkJsonFullSourceGenerator JsonSourceGeneratorFull = 
+        new LDtkJsonFullSourceGenerator(SerializeOptionsFull);
 }

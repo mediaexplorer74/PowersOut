@@ -17,7 +17,7 @@ class ColorConverter : JsonConverter<Color>
             return default;
         }
 
-        if (str.StartsWith('#'))
+        if (str.StartsWith("#"))
         {
             byte r = Convert.ToByte(str.Substring(1, 2), 16);
             byte g = Convert.ToByte(str.Substring(3, 2), 16);

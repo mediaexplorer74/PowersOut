@@ -43,7 +43,8 @@ public partial class LDtkLevel
     /// <param name="filePath"> Path to the .ldtk file. </param>
     public static LDtkLevel? FromFile(string filePath)
     {
-        LDtkLevel? file = JsonSerializer.Deserialize(File.ReadAllText(filePath), Constants.JsonSourceGenerator.LDtkLevel);
+        string json = File.ReadAllText(filePath);
+        LDtkLevel? file = (LDtkLevel)JsonSerializer.Deserialize(json, (Type)null/*Constants.JsonSourceGenerator.LDtkLevel*/);
         if (file != null)
         {
             file.FilePath = Path.GetFullPath(filePath);
@@ -68,7 +69,7 @@ public partial class LDtkLevel
     /// <param name="content">The optional content manager if you are using the content pipeline.</param>
     public static LDtkLevel? FromFile(string filePath, ContentManager content)
     {
-        LDtkLevel? file = content.Load<LDtkLevel>(filePath.Replace(".ldtkl", string.Empty, StringComparison.CurrentCultureIgnoreCase));
+        LDtkLevel? file = content.Load<LDtkLevel>(filePath.Replace(".ldtkl", string.Empty/*, StringComparison.CurrentCultureIgnoreCase*/));
         if (file != null)
         {
             file.FilePath = Path.GetFullPath(filePath);
@@ -208,7 +209,8 @@ public partial class LDtkLevel
     /// <returns> True if point is inside level. </returns>
     public bool Contains(Vector2 point)
     {
-        return point.X >= Position.X && point.Y >= Position.Y && point.X <= Position.X + Size.X && point.Y <= Position.Y + Size.Y;
+        return point.X >= Position.X && point.Y >= Position.Y 
+            && point.X <= Position.X + Size.X && point.Y <= Position.Y + Size.Y;
     }
 
     /// <summary> Check if point is inside of a level. </summary>
@@ -216,6 +218,7 @@ public partial class LDtkLevel
     /// <returns> True if point is inside level. </returns>
     public bool Contains(Point point)
     {
-        return point.X >= Position.X && point.Y >= Position.Y && point.X <= Position.X + Size.X && point.Y <= Position.Y + Size.Y;
+        return point.X >= Position.X && point.Y >= Position.Y 
+            && point.X <= Position.X + Size.X && point.Y <= Position.Y + Size.Y;
     }
 }

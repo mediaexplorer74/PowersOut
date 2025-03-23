@@ -12,7 +12,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -135,6 +135,10 @@
     <Compile Include="JsonPartials\LDtkLevel.cs" />
     <Compile Include="JsonPartials\LDtkWorld.cs" />
     <Compile Include="JsonPartials\TilesetRectangle.cs" />
+    <Compile Include="JsonSerializableAttribute.cs" />
+    <Compile Include="JsonSerializerContext.cs" />
+    <Compile Include="JsonSourceGenerationMode.cs" />
+    <Compile Include="JsonSourceGenerationOptionsAttribute.cs" />
     <Compile Include="LayerType.cs" />
     <Compile Include="LDtkException.cs" />
     <Compile Include="LDtkFieldParser.cs" />
@@ -155,11 +159,17 @@
       <Version>6.0.8</Version>
     </PackageReference>
     <PackageReference Include="MonoGame.Framework.WindowsUniversal">
-      <Version>3.8.0.1641</Version>
+      <Version>3.7.1.189</Version>
     </PackageReference>
-    <PackageReference Include="System.Text.Json">
-      <Version>7.0.0-preview.1.22076.8</Version>
+    <PackageReference Include="System.Memory">
+      <Version>4.5.5</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.Text.Json\System.Text.Json.csproj">
+      <Project>{79e7ee4e-e8df-4d67-b103-6930daaf6ef4}</Project>
+      <Name>System.Text.Json</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

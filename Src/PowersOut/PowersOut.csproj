@@ -13,7 +13,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
@@ -309,6 +309,7 @@
     <Compile Include="Game\Factories\EntityFactory.cs" />
     <Compile Include="Game\Factories\PlayerFactory.cs" />
     <Compile Include="Game\Factories\SpeechFactory.cs" />
+    <Compile Include="Game\JsonNode.cs" />
     <Compile Include="Game\Layers.cs" />
     <Compile Include="Game\LDtkLoader.cs" />
     <Compile Include="Game\Line2.cs" />
@@ -582,19 +583,20 @@
       <Version>6.0.8</Version>
     </PackageReference>
     <PackageReference Include="MonoGame.Framework.WindowsUniversal">
-      <Version>3.8.0.1641</Version>
-    </PackageReference>
-    <PackageReference Include="System.Text.Json">
-      <Version>7.0.0-preview.1.22076.8</Version>
+      <Version>3.7.1.189</Version>
     </PackageReference>
     <PackageReference Include="System.ValueTuple">
-      <Version>4.6.1</Version>
+      <Version>4.3.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LDtkMonogame\LDtkMonogame.csproj">
       <Project>{9df0023c-c75f-451f-9e2d-1448ad04794d}</Project>
       <Name>LDtkMonogame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Text.Json\System.Text.Json.csproj">
+      <Project>{79e7ee4e-e8df-4d67-b103-6930daaf6ef4}</Project>
+      <Name>System.Text.Json</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

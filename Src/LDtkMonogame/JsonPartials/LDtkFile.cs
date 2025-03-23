@@ -32,7 +32,8 @@ public partial class LDtkFile
     /// <returns> Returns the file loaded from the path. </returns>
     public static LDtkFile FromFile(string filePath)
     {
-        LDtkFile? file = JsonSerializer.Deserialize(File.ReadAllText(filePath), Constants.JsonSourceGenerator.LDtkFile);
+        LDtkFile? file = JsonSerializer.Deserialize<LDtkFile>(
+            File.ReadAllText(filePath)/*, Constants.JsonSourceGenerator.LDtkFile*/);
         if (file == null)
         {
             throw new LDtkException($"Failed to Deserialize ldtk file from {filePath}");
