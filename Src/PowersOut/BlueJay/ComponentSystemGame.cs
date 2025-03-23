@@ -60,46 +60,46 @@ namespace BlueJay
       this.ConfigureProvider(this._serviceProvider);
     }
 
-    protected override void Update(GameTime gameTime)
-    {
-      this._deltaService.Delta = gameTime.ElapsedGameTime.Milliseconds;
-      this._deltaService.DeltaSeconds = gameTime.ElapsedGameTime.TotalSeconds;
-      IServiceProvider serviceProvider = this._serviceProvider;
-      if (serviceProvider != null)
-        serviceProvider.GetRequiredService<IViewCollection>().Current?.Update();
-      base.Update(gameTime);
-    }
+        protected override void Update(GameTime gameTime)
+        {
+            this._deltaService.Delta = gameTime.ElapsedGameTime.Milliseconds;
+            this._deltaService.DeltaSeconds = gameTime.ElapsedGameTime.TotalSeconds;
+            IServiceProvider? serviceProvider = this._serviceProvider;
+            if (serviceProvider != null)
+                serviceProvider.GetRequiredService<IViewCollection>().Current?.Update();
+            base.Update(gameTime);
+        }
 
-    protected override void Draw(GameTime gameTime)
-    {
-      IServiceProvider serviceProvider = this._serviceProvider;
-      if (serviceProvider != null)
-        serviceProvider.GetRequiredService<IViewCollection>().Current?.Draw();
-      base.Draw(gameTime);
-    }
+        protected override void Draw(GameTime gameTime)
+        {
+            IServiceProvider? serviceProvider = this._serviceProvider;
+            if (serviceProvider != null)
+                serviceProvider.GetRequiredService<IViewCollection>().Current?.Draw();
+            base.Draw(gameTime);
+        }
 
-    protected override void OnActivated(object sender, EventArgs args)
-    {
-      IServiceProvider serviceProvider = this._serviceProvider;
-      if (serviceProvider != null)
-        serviceProvider.GetRequiredService<IViewCollection>().Current?.Activate();
-      base.OnActivated(sender, args);
-    }
+        protected override void OnActivated(object sender, EventArgs args)
+        {
+            IServiceProvider? serviceProvider = this._serviceProvider;
+            if (serviceProvider != null)
+                serviceProvider.GetRequiredService<IViewCollection>().Current?.Activate();
+            base.OnActivated(sender, args);
+        }
 
-    protected override void OnDeactivated(object sender, EventArgs args)
-    {
-      IServiceProvider serviceProvider = this._serviceProvider;
-      if (serviceProvider != null)
-        serviceProvider.GetRequiredService<IViewCollection>().Current?.Deactivate();
-      base.OnDeactivated(sender, args);
-    }
+        protected override void OnDeactivated(object sender, EventArgs args)
+        {
+            IServiceProvider? serviceProvider = this._serviceProvider;
+            if (serviceProvider != null)
+                serviceProvider.GetRequiredService<IViewCollection>().Current?.Deactivate();
+            base.OnDeactivated(sender, args);
+        }
 
-    protected override void OnExiting(object sender, /*ExitingEventArgs*/EventArgs args)
-    {
-      IServiceProvider serviceProvider = this._serviceProvider;
-      if (serviceProvider != null)
-        serviceProvider.GetRequiredService<IViewCollection>().Current?.Exit();
-      base.OnExiting(sender, args);
-    }
+        protected override void OnExiting(object sender, EventArgs args)
+        {
+            IServiceProvider? serviceProvider = this._serviceProvider;
+            if (serviceProvider != null)
+                serviceProvider.GetRequiredService<IViewCollection>().Current?.Exit();
+            base.OnExiting(sender, args);
+        }
   }
 }

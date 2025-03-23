@@ -1,4 +1,4 @@
-# PowersOut 1.0-prealpha 
+# PowersOut 1.0-prealpha - main branch
 ![Logo](Images/logo.png)
 
 "UWP-Remake" of ITCH.io PowersOut project.

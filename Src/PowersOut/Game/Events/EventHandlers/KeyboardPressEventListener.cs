@@ -41,28 +41,49 @@ namespace GameManager.Events.EventHandlers
       VelocityAddon addon = entity.GetAddon<VelocityAddon>();
       switch (evt.Data.Key)
       {
+        // kbd input - scheme 1
+        case Keys.W:
+            addon.Velocity.Y = -1f;
+            break;
         case Keys.A:
           addon.Velocity.X = -1f;
-          break;
-        case Keys.D:
-          addon.Velocity.X = 1f;
-          break;
-        case Keys.E:
-          // RnD 
-          if (this._gameService.HasFlashLight)
-          {
-            this._gameService.ShowFlashLight = true;
-            break;
-          }
           break;
         case Keys.S:
           addon.Velocity.Y = 1f;
           break;
-        case Keys.W:
-          addon.Velocity.Y = -1f;
-          break;
-      }
-      entity.Update<VelocityAddon>(addon);
+        case Keys.D:
+            addon.Velocity.X = 1f;
+            break;
+        case Keys.E:
+            if (this._gameService.HasFlashLight)
+            {
+                this._gameService.ShowFlashLight = true;
+                break;
+            }
+            break;
+
+        // kbd input - scheme 2
+        case Keys.Up:
+            addon.Velocity.Y = -1f;
+            break;
+        case Keys.Left:
+            addon.Velocity.X = -1f;
+            break;
+        case Keys.Down:
+            addon.Velocity.Y = 1f;
+            break;
+        case Keys.Right:
+            addon.Velocity.X = 1f;
+            break;
+        case Keys.Space:
+            if (this._gameService.HasFlashLight)
+            {
+                this._gameService.ShowFlashLight = true;
+                break;
+            }
+            break;
+        }
+        entity.Update<VelocityAddon>(addon);
     }
   }
 }
